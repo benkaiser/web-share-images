@@ -19,11 +19,14 @@ function WebShareCanvas({}) {
     const canvas = canvasRef.current;
     CanvasAnimation(canvas, width, height);
   });
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("canvas", {
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "exampleContents"
+  }, /* @__PURE__ */ React.createElement("h1", null, "Sharing a Canvas"), /* @__PURE__ */ React.createElement("canvas", {
     ref: canvasRef,
     width,
     height
   }), /* @__PURE__ */ React.createElement("button", {
+    className: "pure-button pure-button-primary share-button",
     onClick: onShare.bind(onShare, canvasRef)
   }, "Share Image"));
 }

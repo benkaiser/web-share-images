@@ -56,8 +56,8 @@ export default function CanvasAnimation(canvas, width, height) {
   }
 
   function changeVelDrop(){
-    gen.vx = Math.random()*GEN_V_CONSTANT-GEN_V_CONSTANT/2;
-    gen.vy = Math.random()*GEN_V_CONSTANT-GEN_V_CONSTANT/2;
+    gen.vx = (Math.random() + 0.5)*GEN_V_CONSTANT-GEN_V_CONSTANT/2;
+    gen.vy = (Math.random() + 0.5)*GEN_V_CONSTANT-GEN_V_CONSTANT/2;
 
     create(gen.x,gen.y);
   }

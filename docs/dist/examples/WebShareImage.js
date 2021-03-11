@@ -12,10 +12,13 @@ async function onShare() {
   });
 }
 function WebShareImage({}) {
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("img", {
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "exampleContents"
+  }, /* @__PURE__ */ React.createElement("h1", null, "Sharing an Image"), /* @__PURE__ */ React.createElement("img", {
     src: "nacho.jpg",
     alt: 'Nacho Libre saying "take it easy"'
   }), /* @__PURE__ */ React.createElement("button", {
+    className: "pure-button pure-button-primary share-button",
     onClick: onShare
   }, "Share Image"));
 }
