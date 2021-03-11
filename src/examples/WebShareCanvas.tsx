@@ -28,9 +28,10 @@ function WebShareCanvas({}: IWebShareCanvasProps): JSX.Element {
   });
 
   return (
-    <div>
+    <div className="exampleContents">
+      <h1>Sharing a Canvas</h1>
       <canvas ref={canvasRef} width={width} height={height} />
-      <button onClick={onShare.bind(onShare, canvasRef)}>Share Image</button>
+      <button className="pure-button pure-button-primary share-button" onClick={onShare.bind(onShare, canvasRef)}>Share Image</button>
     </div>
   );
 }

@@ -17,9 +17,10 @@ async function onShare() {
 
 function WebShareImage({}: IWebShareImageProps): JSX.Element {
   return (
-    <div>
+    <div className="exampleContents">
+      <h1>Sharing an Image</h1>
       <img src="nacho.jpg" alt='Nacho Libre saying "take it easy"' />
-      <button onClick={onShare}>Share Image</button>
+      <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
     </div>
   );
 }
