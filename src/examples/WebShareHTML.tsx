@@ -7,16 +7,15 @@ async function onShare(shareTarget: React.RefObject<HTMLDivElement>) {
   if (!shareTarget.current) {
     return;
   }
-  html2canvas(shareTarget.current).then(async (canvas) => {
-    const dataUrl = canvas.toDataURL();
-    const blob = await (await fetch(dataUrl)).blob();
-    const filesArray: File[] = [new File([blob], 'htmldiv.png', { type: blob.type, lastModified: new Date().getTime() })];
-    const shareData = {
-      files: filesArray,
-    };
-    navigator.share(shareData as any).then(() => {
-      console.log('Shared successfully');
-    })
+  const canvas = await html2canvas(shareTarget.current);
+  const dataUrl = canvas.toDataURL();
+  const blob = await (await fetch(dataUrl)).blob();
+  const filesArray: File[] = [new File([blob], 'htmldiv.png', { type: blob.type, lastModified: new Date().getTime() })];
+  const shareData = {
+    files: filesArray,
+  };
+  navigator.share(shareData as any).then(() => {
+    console.log('Shared successfully');
   });
 }
 
@@ -42,6 +41,7 @@ function WebShareHTML({}: IWebShareHTMLProps): JSX.Element {
         <img src="nacho.jpg" alt='Nacho Libre saying "take it easy"' width="200" />
       </div>
       <button className="pure-button pure-button-primary share-button" onClick={onShare.bind(onShare, shareTarget)}>Share Image</button>
+      <a href="https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareHTML.tsx" className="pure-button share-button">View Code</a>
     </div>
   );
 }
