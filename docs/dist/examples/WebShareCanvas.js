@@ -28,6 +28,9 @@ function WebShareCanvas({}) {
   }), /* @__PURE__ */ React.createElement("button", {
     className: "pure-button pure-button-primary share-button",
     onClick: onShare.bind(onShare, canvasRef)
-  }, "Share Image"));
+  }, "Share Image"), /* @__PURE__ */ React.createElement("a", {
+    href: "https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareCanvas.tsx",
+    className: "pure-button share-button"
+  }, "View Code"));
 }
 export default WebShareCanvas;

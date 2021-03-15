@@ -4,16 +4,15 @@ async function onShare(shareTarget) {
   if (!shareTarget.current) {
     return;
   }
-  html2canvas(shareTarget.current).then(async (canvas) => {
-    const dataUrl = canvas.toDataURL();
-    const blob = await (await fetch(dataUrl)).blob();
-    const filesArray = [new File([blob], "htmldiv.png", {type: blob.type, lastModified: new Date().getTime()})];
-    const shareData = {
-      files: filesArray
-    };
-    navigator.share(shareData).then(() => {
-      console.log("Shared successfully");
-    });
+  const canvas = await html2canvas(shareTarget.current);
+  const dataUrl = canvas.toDataURL();
+  const blob = await (await fetch(dataUrl)).blob();
+  const filesArray = [new File([blob], "htmldiv.png", {type: blob.type, lastModified: new Date().getTime()})];
+  const shareData = {
+    files: filesArray
+  };
+  navigator.share(shareData).then(() => {
+    console.log("Shared successfully");
   });
 }
 function WebShareHTML({}) {
@@ -32,6 +31,9 @@ function WebShareHTML({}) {
   })), /* @__PURE__ */ React.createElement("button", {
     className: "pure-button pure-button-primary share-button",
     onClick: onShare.bind(onShare, shareTarget)
-  }, "Share Image"));
+  }, "Share Image"), /* @__PURE__ */ React.createElement("a", {
+    href: "https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareHTML.tsx",
+    className: "pure-button share-button"
+  }, "View Code"));
 }
 export default WebShareHTML;
