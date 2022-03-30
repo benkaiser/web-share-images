@@ -18,7 +18,7 @@ function WebShareImage({}: IWebShareImageProps): JSX.Element {
   return (
     <div className="exampleContents">
       <h1>Sharing an Image</h1>
-      <img src="nacho.jpg" alt='Nacho Libre saying "take it easy"' />
+      <img src="https://test-sf.squareark.com/images/SA-logo.png" alt='Nacho Libre saying "take it easy"' />
       <button className="pure-button pure-button-primary share-button" onClick={onShare}>Share Image</button>
       <a href="https://github.com/benkaiser/web-share-images/blob/master/src/examples/WebShareImage.tsx" className="pure-button share-button">View Code</a>
     </div>
